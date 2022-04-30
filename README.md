@@ -23,7 +23,7 @@ Download these 2 DLL http://www.videohelp.com/download/sox-14.4.0-libmad-libmp3l
 
 ```
 slow_reverb.py -u video url -o output file
-if you dont use the -o parameter, your ouput file will be named as the video_title.mp3
+if you dont use the -o parameter, your ouput file will be named as the video_title.slowed&reverb.mp3
 
 Example:
 slow_reverb.py -u 'https://www.youtube.com/watch?v=w8KQmps-Sog' -o uprising_slowed_reverb.mp3
