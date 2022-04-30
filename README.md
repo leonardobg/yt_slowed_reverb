@@ -12,8 +12,8 @@ Tested only on Python 3.9.6
 Install yt_dlp and moviepy
 
 ```
-  pip install yt_dlp
-  pip install moviepy
+pip install yt_dlp
+pip install moviepy
 ```
 Install Sox  
 Download it from here https://sourceforge.net/projects/sox/ and add it to your PATH  
@@ -28,7 +28,6 @@ if you dont use the -o parameter, your ouput file will be named as the video_tit
 Example:
 slow_reverb.py -u 'https://www.youtube.com/watch?v=w8KQmps-Sog' -o uprising_slowed_reverb.mp3
 slow_reverb.py -u 'https://www.youtube.com/watch?v=w8KQmps-Sog'
-
 ```
 
 
