@@ -8,6 +8,7 @@ from moviepy.video.io.VideoFileClip import AudioFileClip
 def parser_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument('-u','--url', type=str, help="Music URL")
+    parser.add_argument('-o','--output', type=str, help="Output file name")
     return parser.parse_args()
 
 def download_video(url: str) -> str:
@@ -30,8 +31,8 @@ def convert_to_mp3(filename: str) -> None:
     clip.write_audiofile(filename + ".mp3")
     clip.close()
 
-def slow_and_reverb(filename: str) -> None:
-    sox = f"sox {filename}.mp3 {filename}_slowed_reverb.mp3 reverb speed 0.8"
+def slow_and_reverb(filename: str, output: str) -> None:
+    sox = f"sox -S {filename}.mp3 {output} reverb speed 0.8"
     print("Slowing and reverbering your song :)")
     subprocess.run(sox)
 
@@ -40,15 +41,19 @@ def main():
         args = parser_args()
         url = args.url
         filename = download_video(url)
-        convert_to_mp3(filename)
-        slow_and_reverb(filename)
-
+        output = args.output or f"{filename}.slowed&reverb.mp3"
         delete_files = f"del {filename} {filename}.mp3"
+        convert_to_mp3(filename)
+        time.sleep(1)
+        subprocess.run("cls",shell=True)
+        slow_and_reverb(filename,output)
+        time.sleep(1)
+        subprocess.run("cls",shell=True)
         
         print("Removing temp files")
         subprocess.run(delete_files,shell=True)
         time.sleep(0.5)
-        print("Done!")
+        print("Done! Enjoy your song")
     except Exception as e:
         print(e)
 
