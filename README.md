@@ -1,5 +1,5 @@
 
-# yt_slowed_reverbered
+# yt_slowed_reverb
 
 Slow and reverb your songs using their youtube link  
 Working only on Windows atm, Linux version coming soon™
